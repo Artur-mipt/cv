@@ -1,0 +1,212 @@
+%% start of file `template.tex'.
+%% Copyright 2006-2013 Xavier Danaux (xdanaux@gmail.com).
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License version 1.3c,
+% available at http://www.latex-project.org/lppl/.
+
+
+\documentclass[11pt,a4paper,roman]{moderncv}        % possible options include font size ('10pt', '11pt' and '12pt'), paper size ('a4paper', 'letterpaper', 'a5paper', 'legalpaper', 'executivepaper' and 'landscape') and font family ('sans' and 'roman')
+
+% modern themes
+\moderncvstyle{banking}                            % style options are 'casual' (default), 'classic', 'oldstyle' and 'banking'
+\moderncvcolor{blue}                                % color options 'blue' (default), 'orange', 'green', 'red', 'purple', 'grey' and 'black'
+%\renewcommand{\familydefault}{\sfdefault}         % to set the default font; use '\sfdefault' for the default sans serif font, '\rmdefault' for the default roman one, or any tex font name
+\nopagenumbers{}                                  % uncomment to suppress automatic page numbering for CVs longer than one page
+
+% character encoding
+\usepackage[utf8]{inputenc}
+\usepackage{fontawesome}
+\usepackage{fontspec}
+\usepackage{tabularx}
+\usepackage{ragged2e}
+\usepackage{hyperref}
+% if you are not using xelatex ou lualatex, replace by the encoding you are using
+%\usepackage{CJKutf8}                              % if you need to use CJK to typeset your resume in Chinese, Japanese or Korean
+
+% adjust the page margins
+\usepackage[scale=0.87]{geometry}
+\usepackage{multicol}
+%\setlength{\hintscolumnwidth}{3cm}                % if you want to change the width of the column with the dates
+%\setlength{\makecvtitlenamewidth}{10cm}           % for the 'classic' style, if you want to force the width allocated to your name and avoid line breaks. be careful though, the length is normally calculated to avoid any overlap with your personal info; use this at your own typographical risks...
+
+\usepackage{import}
+
+% personal data
+\name{Artur}{Mutolapov}
+% \title{Curriculum Vitae}                               % optional, remove / comment the line if not wanted
+\address{Moscow, Russia }{}{}% optional, remove / comment the line if not wanted; the "postcode city" and and "country" arguments can be omitted or provided empty
+% \phone[mobile]{909-839-3097}                   % optional, remove / comment the line if not wanted
+% \phone[fixed]{01234 123456}                    % optional, remove / comment the line if not wanted
+%\phone[fax]{+3~(456)~789~012}                      % optional, remove / comment the line if not wanted
+% \email{xpan1@swarthmore.edu}                               % optional, remove / comment the line if not wanted
+% \homepage{shawnpan.me}                         % optional, remove / comment the line if not wanted
+% \extrainfo{}                 % optional, remove / comment the line if not wanted
+%\photo[64pt][0.4pt]{picture}                       % optional, remove / comment the line if not wanted; '64pt' is the height the picture must be resized to, 0.4pt is the thickness of the frame around it (put it to 0pt for no frame) and 'picture' is the name of the picture file
+%\quote{Some quote}                                 % optional, remove / comment the line if not wanted
+
+% to show numerical labels in the bibliography (default is to show no labels); only useful if you make citations in your resume
+%\makeatletter
+%\renewcommand*{\bibliographyitemlabel}{\@biblabel{\arabic{enumiv}}}
+%\makeatother
+%\renewcommand*{\bibliographyitemlabel}{[\arabic{enumiv}]}% CONSIDER REPLACING THE ABOVE BY THIS
+
+% bibliography with mutiple entries
+%\usepackage{multibib}
+%\newcites{book,misc}{{Books},{Others}}
+  
+\newcommand*{\customcventry}[7][.25em]{
+  \begin{tabular}{@{}l} 
+    {\bfseries #4}
+  \end{tabular}
+  \hfill% move it to the right
+  \begin{tabular}{l@{}}
+     {\bfseries #5}
+  \end{tabular} \\
+  \begin{tabular}{@{}l} 
+    {\itshape #3}
+  \end{tabular}
+  \hfill% move it to the right
+  \begin{tabular}{l@{}}
+     {\itshape #2}
+  \end{tabular}
+  \ifx&#7&%
+  \else{\\%
+    \begin{minipage}{\maincolumnwidth}%
+      \small#7%
+    \end{minipage}}\fi%
+  \par\addvspace{#1}}
+
+\newcommand*{\customcvproject}[4][.25em]{
+%   \vfill\noindent
+  \begin{tabular}{@{}l} 
+    {\bfseries #2}
+  \end{tabular}
+  \hfill% move it to the right
+  \begin{tabular}{l@{}}
+     {\itshape #3}
+  \end{tabular}
+  \ifx&#4&%
+  \else{\\%
+    \begin{minipage}{\maincolumnwidth}%
+      \small#4%
+    \end{minipage}}\fi%
+  \par\addvspace{#1}}
+
+\setlength{\tabcolsep}{12pt}
+
+%----------------------------------------------------------------------------------
+%            content
+%----------------------------------------------------------------------------------
+\begin{document}
+%\begin{CJK*}{UTF8}{gbsn}                          % to typeset your resume in Chinese using CJK
+%-----       resume       ---------------------------------------------------------
+\makecvtitle
+\vspace*{-23mm}
+
+\begin{center}
+\begin{tabular}{ c c c c}
+ \faEnvelopeO\enspace mutolapov.aeh@phystech.edu & \faGithub\enspace \href{https://github.com/Artur-mipt}{github.com/artur-mipt} & \faMobile\enspace +7(916)591-08-78 \\  
+\end{tabular}
+\end{center}
+
+
+\section{Summary}
+
+I'm a 4th year student of MIPT, data analyst with background in Fintech and Legaltech. Interested in machine learning and data analytics.
+
+
+\section{Education}
+{\customcventry{}{Bachelor in Computer Science}{\href{https://mipt.ru/}{Moscow Institute of Physics and Technology}}{}{}{Expected Graduation: 2021}{Bachelor's thesis: Abstractive Text Summarization using GAN}}
+
+\section{Skills}
+\begin{minipage}{\maincolumnwidth}%
+	\small{
+    	\begin{itemize}
+          \item Coursework: Data Structures and Algorithms, Mathematical Statistics, Machine Learning, Deep Learning in NLP, Coursera ML and DS specialization
+          \item Programming Languages: Python, R
+          \item ML and DL: Pandas, Scipy, Numpy, Matplotlib, Sklearn, PyTorch, XGBoost, CatBoost, LightGBM
+          \item Analytics: SQL, A/B testing, Hypothesis testing, Statsmodels, Time Series, Clusterization
+          \item Development: Linux, Git, Jira/YouTrack
+          \item Languages: Russian (Native Speaker), English (Upper-Intermediate)
+		\end{itemize}}%
+\end{minipage}%
+
+
+\section{Experience}
+
+{\customcventry{Jul 2019 - Aug 2019}{Machine Learning Engineer Intern}{\href{https://www.tinkoff.ru/}{Tinkoff}}{Moscow, Russia}{}
+{\begin{itemize}
+  \item Implemented language model based on LSTM for Re-Ranking of ASR hypotheses
+  \item Increased quality of speech recognition by 7\%
+\end{itemize}
+}
+
+{\customcventry{Jul 2020 – Sep 2020}{NLP Data Scientist Intern}{\href{https://www.sberbank.ru/}{Sber}}{Moscow, Russia}{}
+{\begin{itemize}
+  \item Implemented text classification of legal documents
+  \item Implemented NER for different types of documents
+  \item Trained Siamese-LSTM for text similarity task
+\end{itemize}
+}
+
+{\customcventry{Sep 2020 – Present}{Data Analyst}{\href{https://ubic.tech/}{Ubic Technologies}}{Moscow, Russia}{}
+{\begin{itemize}
+  \item Provided analytics for \url{ag.mos.ru}
+  \item Analyzed the popularity of news from well-known media
+  \item Developed \href{https://www.rbc.ru/technology_and_media/14/05/2020/5ebadba69a79478f96365342}{Datahub} - the platform for privacy-preserving ML
+\end{itemize}
+}
+
+
+\section{Projects}
+
+{\customcvproject{Bike Sharing (\href{https://github.com/Artur-mipt/bike\_sharing}{github.com/Artur-mipt/bike\_sharing})}{Mar 2020 - Apr 2020}
+{\begin{itemize}
+  \item Investigated \href{kaggle.com/pronto/cycle-share-dataset}{Seattle Cycle Share Dataset} using visualization tools, math statistics and machine learning
+  \item Formulated company recommendations for more efficient work
+\end{itemize}
+}
+}
+
+{\customcvproject{Kaggle Ion Switching (\href{https://github.com/Artur-mipt/ion_switching}{github.com/Artur-mipt/ion\_switching})}{Mar 2020 - Apr 2020}
+{\begin{itemize}
+  \item Participated in \href{https://www.kaggle.com/c/liverpool-ion-switching/overview}{Kaggle Ion Switching} competition from University of Liverpool
+  \item Experimented with EDA, data preprocessing and different classic ML models
+  \item Took 1002/2618 place, team name - mipt-stats-Mutolapov-Polyakov
+\end{itemize}
+}
+}
+
+{\customcvproject{Abstractive Text Summarization - Bachelor's Thesis}{Nov 2020 - May 2021}
+{\begin{itemize}
+  \item Implemented GAN for abstractive text summarization
+  \item Made topic modeling of news dataset
+  \item Got a stat-meaningful result in the topical summarization task
+\end{itemize}
+}
+}
+      
+}
+% Publications from a BibTeX file without multibib
+%  for numerical labels: \renewcommand{\bibliographyitemlabel}{\@biblabel{\arabic{enumiv}}}% CONSIDER MERGING WITH PREAMBLE PART
+%  to redefine the heading string ("Publications"): \renewcommand{\refname}{Articles}
+\nocite{*}
+\bibliographystyle{plain}
+\bibliography{publications}                        % 'publications' is the name of a BibTeX file
+
+% Publications from a BibTeX file using the multibib package
+%\section{Publications}
+%\nocitebook{book1,book2}
+%\bibliographystylebook{plain}
+%\bibliographybook{publications}                   % 'publications' is the name of a BibTeX file
+%\nocitemisc{misc1,misc2,misc3}
+%\bibliographystylemisc{plain}
+%\bibliographymisc{publications}                   % 'publications' is the name of a BibTeX file
+
+%-----       letter       ---------------------------------------------------------
+
+\end{document}
+
+
+%% end of file `template.tex'.
